@@ -67,12 +67,12 @@ void SeqList::SeqInsert(DataType value, int pos)//在指定位置插入
 		cout << "顺序表已满，插入失败" << endl;
 		return;
 	}
-	int i = _size - 1;
-	for (i = _size - 1; i >= pos; i--)
+	int i = _size-1 ;
+	for (i = _size-1 ; i >= pos; i--)//等号不能少，否则出错
 	{
 		_array[i + 1] = _array[i];
 	}
-	_array[i] = value;
+	_array[pos] = value;
 	_size++;
 }
 void SeqList::SeqErase(int pos)//在指定位置删除
