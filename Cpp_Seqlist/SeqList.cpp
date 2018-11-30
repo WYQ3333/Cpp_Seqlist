@@ -7,6 +7,12 @@ SeqList::SeqList(DataType capacity)
 		_array = nullptr;
 	}
 	_array = new DataType[capacity];
+	if (nullptr == _array)
+	{
+		assert(_array);
+		cout << "构造函数动态开辟空间失败" << endl;
+		return;
+	}
 	_capacity = capacity;
 	_size = 0;
 	for (int i = 0; i < _capacity; i++)
@@ -33,8 +39,7 @@ void SeqList::SeqPushBack(DataType value)//尾插
 {
 	if (SeqIsFull())
 	{
-		cout << "顺序表已满" << endl;
-		return;
+		Seqdilate();
 	}
 	_array[_size++] = value;
 }
@@ -64,8 +69,7 @@ void SeqList::SeqInsert(DataType value, int pos)//在指定位置插入
 	}
 	if (SeqIsFull())
 	{
-		cout << "顺序表已满，插入失败" << endl;
-		return;
+		Seqdilate();
 	}
 	int i = _size-1 ;
 	for (i = _size-1 ; i >= pos; i--)//等号不能少，否则出错
@@ -75,6 +79,22 @@ void SeqList::SeqInsert(DataType value, int pos)//在指定位置插入
 	_array[pos] = value;
 	_size++;
 }
+
+void SeqList::Seqdilate()//顺序表扩容
+{
+	DataType *Newptr = new DataType[2 * _capacity];
+	for (int i = 0; i < _capacity; i++)
+	{
+		Newptr[i] = _array[i];
+	}
+	
+	//释放旧空间
+	delete[] _array;
+	_array = Newptr;
+	_size = _capacity;
+	_capacity *= 2;
+}
+
 void SeqList::SeqErase(int pos)//在指定位置删除
 {
 	if (pos < 0 || pos >= _capacity)

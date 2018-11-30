@@ -18,9 +18,11 @@ void SeqListtest()
 	s1.SeqPrint();
 	cout << "在3的位置插入11>>";
 	s1.SeqInsert(11, 0);
+	s1.SeqInsert(16, 0);
+	s1.SeqInsert(55, 0);
 	s1.SeqPrint();
 	cout << "在0的位置删除一个元素，相当于头删";
-	s1.SeqErase(3);
+	s1.SeqErase(0);
 	s1.SeqPrint();
 }
 

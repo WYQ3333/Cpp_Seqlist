@@ -17,6 +17,7 @@ public:
 	void SeqInsert(DataType value, int pos);//在指定位置插入
 	void SeqErase(int pos);//在指定位置删除
 	void SeqPrint();//打印顺序表
+	void Seqdilate();//顺序表扩容
 	int SeqSize();//顺序表的大小
 	~SeqList();//析构函数
 private:
