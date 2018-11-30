@@ -6,9 +6,13 @@ SeqList::SeqList(DataType capacity)
 	{
 		_array = nullptr;
 	}
-	_array = new(0) DataType[capacity];
+	_array = new DataType[capacity];
 	_capacity = capacity;
 	_size = 0;
+	for (int i = 0; i < _capacity; i++)
+	{
+		_array[i] = 0;
+	}
 }
 
 SeqList::SeqList(const SeqList& s)
@@ -34,7 +38,7 @@ void SeqList::SeqPushBack(DataType value)//尾插
 	}
 	_array[_size++] = value;
 }
-void SeqList::SeqPopBack(DataType value)//尾删
+void SeqList::SeqPopBack()//尾删
 {
 	if (SeqIsEmpty())
 	{
@@ -64,7 +68,7 @@ void SeqList::SeqInsert(DataType value, int pos)//在指定位置插入
 		return;
 	}
 	int i = _size - 1;
-	for (i = _size - 1; i > pos; i--)
+	for (i = _size - 1; i >= pos; i--)
 	{
 		_array[i + 1] = _array[i];
 	}
@@ -93,6 +97,16 @@ void SeqList::SeqErase(int pos)//在指定位置删除
 int SeqList::SeqSize()//顺序表的大小
 {
 	return _size;
+}
+
+void SeqList::SeqPrint()
+{
+	int i = 0;
+	for (i = 0; i < _size; i++)
+	{
+		cout << _array[i] << " ";
+	}
+	cout << endl;
 }
 
 SeqList::~SeqList()
