@@ -4,7 +4,7 @@
 void SeqListtest()
 {
 	SeqList s1(5);
-	cout << s1.SeqIsEmpty() << endl;
+	cout << "顺序表是否为空>> " << s1.SeqIsEmpty() << endl;
 	s1.SeqPushBack(12);
 	s1.SeqPushBack(256);
 	s1.SeqPushBack(333);
@@ -30,7 +30,7 @@ void SeqListtest()
 int main()
 {
 	SeqListtest();
-	_CrtDumpMemoryLeaks();//？？？
+	_CrtDumpMemoryLeaks();//内存泄漏检测，放到函数的结尾处
 	system("pause");
 	return 0;
 }

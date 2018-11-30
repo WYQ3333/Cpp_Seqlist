@@ -2,11 +2,11 @@
 
 #include<iostream>
 #include<assert.h>
-////????
+////内存泄漏检测
 #define CRTDBG_MAP_ALLOC    //注意顺序不能乱
 #include <stdlib.h>    
 #include <crtdbg.h> //检测是否有内存泄漏
-////???
+////
 using namespace std;
 
 typedef int DataType;
