@@ -89,7 +89,7 @@ void SeqList::Seqdilate()//À≥–Ú±Ì¿©»›
 	}
 	
 	// Õ∑≈æ…ø’º‰
-	delete[] _array;
+	/*delete[] _array;*/
 	_array = Newptr;
 	_size = _capacity;
 	_capacity *= 2;

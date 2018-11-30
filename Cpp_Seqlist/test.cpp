@@ -24,11 +24,13 @@ void SeqListtest()
 	cout << "在0的位置删除一个元素，相当于头删";
 	s1.SeqErase(0);
 	s1.SeqPrint();
+	
 }
 
 int main()
 {
 	SeqListtest();
+	_CrtDumpMemoryLeaks();//？？？
 	system("pause");
 	return 0;
 }
